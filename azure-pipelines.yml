@@ -12,10 +12,12 @@ steps:
 - task: PowerPlatformExportSolution@2
   displayName: Export Dev Solution
   inputs:
+    authenticationType: PowerPlatformSPN
     SolutionName: ProcurementAgent_Dev
     SolutionOutputFile: solution.zip
 
 - task: PowerPlatformImportSolution@2
   displayName: Import Solution
   inputs:
+    authenticationType: PowerPlatformSPN
     SolutionInputFile: solution.zip
