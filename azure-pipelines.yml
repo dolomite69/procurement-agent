@@ -1,0 +1,21 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+
+- task: PowerPlatformToolInstaller@2
+  displayName: Install Power Platform Tools
+
+- task: PowerPlatformExportSolution@2
+  displayName: Export Dev Solution
+  inputs:
+    SolutionName: ProcurementAgent_Dev
+    SolutionOutputFile: solution.zip
+
+- task: PowerPlatformImportSolution@2
+  displayName: Import Solution
+  inputs:
+    SolutionInputFile: solution.zip
